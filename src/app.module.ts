@@ -5,12 +5,12 @@ import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ProductsModule } from './module/products/products.module';
 import { TestModule } from './test/test.module';
+import * as dotenv from 'dotenv';
 
+dotenv.config();
 @Module({
   imports: [
-    MongooseModule.forRoot(
-      'mongodb+srv://Nhat323242:Nhat323242@cluster0.ooheyfo.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0',
-    ),
+    MongooseModule.forRoot(process.env.MONGODB_URI),
     ProductsModule,
     TestModule,
   ],
