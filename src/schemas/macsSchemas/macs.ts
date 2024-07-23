@@ -14,3 +14,4 @@ export class Macs extends Document {
 }
 
 export const MacsSchema = SchemaFactory.createForClass(Macs)
+
