@@ -1,4 +1,4 @@
-import { Phones } from 'src/schemas/phonesShcemas/phones';
+
 import { PhonesService } from './phone.service';
 import { Controller, Get, Param } from '@nestjs/common';
 
@@ -6,7 +6,7 @@ import { Controller, Get, Param } from '@nestjs/common';
 export class PhoneController {
   constructor(private readonly phoneService: PhonesService) {}
   @Get()
-  async getAllPhone(): Promise<Phones[]> {
+  async getAllPhone(): Promise<any> {
     try {
       const phones = await this.phoneService.getAllPhones();
       return phones;
@@ -15,7 +15,7 @@ export class PhoneController {
     }
   }
   @Get('/:id')
-  async getIphoneDetail(@Param('id') id: string): Promise<Phones> {
+  async getIphoneDetail(@Param('id') id: string): Promise<any> {
     try {
       const resp = await this.phoneService.getIphoneDetail(id);
       return resp;

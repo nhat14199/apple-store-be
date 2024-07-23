@@ -1,12 +1,12 @@
 import { Controller, Get, Param } from '@nestjs/common';
 import { MacsService } from './mac.service';
-import { Macs } from 'src/schemas/macsSchemas/macs';
+// import { Macs } from 'src/schemas/macsSchemas/macs';
 
 @Controller('products/macs')
 export class MacsController {
   constructor(private readonly macService: MacsService) {}
   @Get()
-  async getAllMacs(): Promise<Macs[]> {
+  async getAllMacs(): Promise<any> {
     try {
       const macs = await this.macService.getAllMac();
       return macs;
@@ -15,7 +15,7 @@ export class MacsController {
     }
   }
   @Get('/:id')
-  async getMacDetail(@Param('id') id: string): Promise<Macs> {
+  async getMacDetail(@Param('id') id: string): Promise<any> {
     try {
       const resp = await this.macService.getMacdetail(id);      
       return resp;

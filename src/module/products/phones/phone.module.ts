@@ -2,11 +2,12 @@ import { Module } from '@nestjs/common';
 import { PhoneController } from './phone.controler';
 import { PhonesService } from './phone.service';
 import { MongooseModule } from '@nestjs/mongoose';
-import { Phones, PhonesSchema } from 'src/schemas/phonesShcemas/phones';
+import { PhonesSchema } from 'src/schemas/phonesShcemas/phones';
+import { MacsSchema } from 'src/schemas/macsSchemas/macs';
 
 @Module({
   imports: [
-    MongooseModule.forFeature([{ name: Phones.name, schema: PhonesSchema }]),
+    MongooseModule.forFeature([{ name: "phones", schema: MacsSchema }]),
   ],
   controllers: [PhoneController],
   providers: [PhonesService],
